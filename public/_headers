@@ -1,0 +1,29 @@
+# Cloudflare Pages headers.
+# Long-cache the fingerprinted assets; security hardening on every response.
+
+/assets/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/*
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  X-Frame-Options: DENY
+  # Force HTTPS for ~180 days (no preload — keeps it reversible).
+  Strict-Transport-Security: max-age=15552000; includeSubDomains
+  # Drop browser features the app never uses.
+  Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=(), usb=(), interest-cohort=()
+  # Content Security Policy. The app is fully self-contained: scripts, styles,
+  # fonts and workers all come from our own origin (Archivo is self-hosted via
+  # @fontsource — no Google Fonts). 'unsafe-inline' covers the pre-paint theme
+  # script and a few inline styles;
+  # there is no HTML-injection sink (React escapes everything, no innerHTML), so
+  # residual XSS risk stays low while CSP still blocks external script injection,
+  # framing, base-tag hijacking and insecure requests.
+  # Cloudflare Web Analytics (cookieless, privacy-first — see BACKLOG) is allowed:
+  # its beacon loads from static.cloudflareinsights.com and reports to
+  # cloudflareinsights.com. Harmless if analytics is off (nothing loads it).
+  # NOTE: enabling AdSense/GA4 later means extending this further — add
+  #   script-src  https://pagead2.googlesyndication.com https://www.googletagmanager.com
+  #   img-src     https: ; connect-src https://www.google-analytics.com
+  #   frame-src   https://googleads.g.doubleclick.net
+  Content-Security-Policy: default-src 'self'; base-uri 'self'; object-src 'none'; frame-ancestors 'none'; form-action 'none'; img-src 'self' data:; script-src 'self' 'unsafe-inline' https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline'; font-src 'self'; connect-src 'self' https://cloudflareinsights.com; manifest-src 'self'; worker-src 'self'; upgrade-insecure-requests

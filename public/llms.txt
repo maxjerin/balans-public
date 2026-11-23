@@ -1,0 +1,17 @@
+# Balans
+
+> Balans splits a rotating weekly pool of players into balanced football (soccer) teams, assigns positions and a derived formation, and shares the whole setup as a single link. Pick. Balance. Play.
+
+Balans is a free, privacy-first, browser-only web app — no account, no server, no database. Player names never touch a server: the entire setup is encoded in the URL fragment (`#…`), which browsers never send to any server, so a shared link fully reconstructs the teams with zero server lookups. It works offline as a PWA and is available in English, French, Spanish and Portuguese.
+
+Typical flow: add players (one per line or comma-separated), mark this week's availability and each player's positions (GK/DEF/MID/FWD), generate balanced teams, pick a playing style to derive a formation on an SVG pitch, then copy a link or chat-ready text to share.
+
+## Pages
+- [About](https://balans.team/about): what Balans is, the privacy-first design, and how the balancer works
+- [Help](https://balans.team/help): how to add players, balance teams, choose a formation, and share a setup
+- [Contact](https://balans.team/contact): how to get in touch
+- [Privacy](https://balans.team/privacy): privacy policy — no accounts, no cookies or analytics by default, data lives only in the shared link
+- [Terms](https://balans.team/terms): terms of use
+
+## Optional
+- [Sitemap](https://balans.team/sitemap.xml): every page, localized (en/fr/es/pt)

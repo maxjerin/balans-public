@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="EvenSides">
+  <!-- maskable: keep meaningful content within the central ~80% safe zone -->
+  <rect width="512" height="512" rx="96" fill="#15803d"/>
+  <g fill="none" stroke="#ffffff" stroke-opacity="0.85" stroke-width="10">
+    <rect x="128" y="96" width="256" height="320" rx="16"/>
+    <line x1="128" y1="256" x2="384" y2="256"/>
+    <circle cx="256" cy="256" r="52"/>
+  </g>
+  <circle cx="256" cy="256" r="20" fill="#ffffff"/>
+</svg>
